@@ -20,6 +20,7 @@ func main() {
 
 	// Get zero value if not found
 	fmt.Println(stocks["TSLA"]) // 0
+	fmt.Printf("%T\n", stocks["TSLA"])
 
 	// Use two value to see if found
 	value, ok := stocks["TSLA"]
