@@ -13,7 +13,7 @@ func killServer(pidFile string) error {
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	//defer file.Close()
 
 	var pid int
 	if _, err := fmt.Fscanf(file, "%d", &pid); err != nil {
@@ -22,6 +22,8 @@ func killServer(pidFile string) error {
 
 	// Simulate kill
 	fmt.Printf("killing server with pid=%d\n", pid)
+
+	file.Close()
 
 	if err := os.Remove(pidFile); err != nil {
 		// We can go on if we fail here
